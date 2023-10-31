@@ -1,0 +1,41 @@
+name: Check Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # 设置为0以获取所有历史记录和标签
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Check version change and dispatch event
+        run: |
+          # 获取当前版本
+          CURRENT_VERSION=$(python setup.py --version)
+          
+          # 获取最后一个标签的版本
+          LAST_TAG=$(git describe --tags --abbrev=0)
+          LAST_VERSION=${LAST_TAG#v}
+          
+          # 检查版本是否更改
+          if [[ "$CURRENT_VERSION" != "$LAST_VERSION" ]]; then
+            echo "Version changed from $LAST_VERSION to $CURRENT_VERSION"
+                                
+            # 触发 repository_dispatch 事件
+            curl -X POST -u "${{ github.token }}" \
+              https://api.github.com/repos/${{ github.repository }}/dispatches \
+              -d '{"event_type": "version-changed", "client_payload": {"version": "'"$CURRENT_VERSION"'"}}'
+          else
+            echo "Version did not change"
+          fi
