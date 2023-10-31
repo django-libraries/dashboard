@@ -39,7 +39,7 @@ Navigate to `/dashboards/` in your browser to access the dashboard.
 ## Development
 
 To contribute or report issues, please visit
-the [project page](https://github.com/fuqiang-code/django-template-dashboard).
+the [django_template_dashboards](https://github.com/fuqiang-code/django-template-dashboards).
 
 ## License
 
