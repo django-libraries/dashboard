@@ -21,20 +21,20 @@ jobs:
           
           # 获取新版本号
           NEW_VERSION=${{ github.event.client_payload.version }}
-          echo "Creating new tag v$NEW_VERSION"
+          echo "Creating new tag $NEW_VERSION"
           
-          # 创建新标签
-          git tag v$NEW_VERSION
+          # 创建新标签并附加消息
+          git tag $NEW_VERSION -m "🔖-【Release version $NEW_VERSION】"
           if [[ $? -ne 0 ]]; then
-            echo "Failed to create tag v$NEW_VERSION"
+            echo "Failed to create tag $NEW_VERSION"
             exit 1
           fi
           
           # 推送新标签
-          git push origin v$NEW_VERSION
+          git push origin $NEW_VERSION
           if [[ $? -ne 0 ]]; then
-            echo "Failed to push tag v$NEW_VERSION"
+            echo "Failed to push tag $NEW_VERSION"
             exit 1
           fi
           
-          echo "Successfully created and pushed tag v$NEW_VERSION"
+          echo "Successfully created and pushed tag $NEW_VERSION"
