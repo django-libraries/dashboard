@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # 注意：目前没有v4版本，应该使用v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0  # 设置为0以获取所有历史记录和标签
 
       - name: Set up Python
-        uses: actions/setup-python@v2  # 注意：目前没有v4版本，应该使用v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -27,12 +27,12 @@ jobs:
       - name: Get current version
         id: get-version
         run: |
-          echo "::set-output name=version::$(python -c "import toml; print(toml.load('pyproject.toml')['project']['version'])")"
+          echo "VERSION=$(python -c "import toml; print(toml.load('pyproject.toml')['project']['version'])")" >> $GITHUB_ENV
 
       - name: Check version change and dispatch event
         run: |
           # 获取当前版本
-          CURRENT_VERSION=${{ steps.get-version.outputs.version }}
+          CURRENT_VERSION=$VERSION
           
           # 尝试获取最后一个标签的版本
           LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null)
