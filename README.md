@@ -1,4 +1,4 @@
-# Django Template Dashboard
+# Django Template Dashboards
 
 A dashboard based on Django template.
 
