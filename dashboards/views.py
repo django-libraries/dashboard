@@ -13,7 +13,7 @@ class DashboardView(LoginRequiredMixin, View):
     """
     仪表板视图
     """
-    login_url = 'login/'
+    login_url = '/dashboards/accounts/login/'
     redirect_field_name = 'next'
     template_name = 'dashboards/index.html'
 
