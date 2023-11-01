@@ -4,11 +4,27 @@ from dashboards.forms import RegistrationForm, LoginForm, UserPasswordResetForm,
     UserPasswordChangeForm
 from django.contrib.auth import logout
 
+# 在 views.py 文件中
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View
+
+
+class DashboardView(LoginRequiredMixin, View):
+    """
+    仪表板视图
+    """
+    login_url = 'login/'
+    redirect_field_name = 'next'
+    template_name = 'dashboards/index.html'
+
+    def get(self, request, *args, **kwargs):
+        """
+        跳转到仪表板主页面
+        """
+        return render(request, self.template_name, {'segment': 'index'}, *args, **kwargs)
+
 
 # Dashboards
-def index(request):
-    return render(request, 'dashboards/index.html', {'segment': 'index'})
-
 
 def billing(request):
     return render(request, 'dashboards/billing.html', {'segment': 'billing'})
