@@ -14,6 +14,12 @@ dependencies = [
     "Django>=3.0"
 ]
 
+[project.urls]
+Homepage = "https://github.com/django-libraries/django-template-dashboard"  # 你的项目主页 URL
+Documentation = "https://github.com/django-libraries/django-template-dashboard"  # 文档链接
+IssueTracker = "https://github.com/django-libraries/django-template-dashboard/issues"  # 问题跟踪器链接
+Source = "https://github.com/django-libraries/django-template-dashboard"  # 源代码链接
+
 [classifiers]
 Framework = "Django"
 Programming_Language = "Python :: 3"
