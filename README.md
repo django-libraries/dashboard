@@ -1,4 +1,4 @@
-# Django Template Dashboards
+# Django Template Dashboard
 
 A dashboard based on Django template.
 
@@ -7,7 +7,7 @@ A dashboard based on Django template.
 Install the package via pip:
 
 ```bash
-pip install django-dashboards
+pip install django-dashboard
 ```
 
 ## Configuration
@@ -17,7 +17,7 @@ After installing the package, add it to your `INSTALLED_APPS` in the `settings.p
 ```python
 INSTALLED_APPS = [
     # ... other apps,
-    'dashboards',
+    'dashboard',
 ]
 ```
 
@@ -28,18 +28,18 @@ from django.urls import include, path
 
 urlpatterns = [
     # ... other urls,
-    path('dashboards/', include('dashboards.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]
 ```
 
 ## Usage
 
-Navigate to `/dashboards/` in your browser to access the dashboard.
+Navigate to `/dashboard/` in your browser to access the dashboard.
 
 ## Development
 
 To contribute or report issues, please visit
-the [dashboards](https://github.com/django-libraries/dashboards).
+the [dashboard](https://github.com/django-libraries/dashboard).
 
 ## License
 

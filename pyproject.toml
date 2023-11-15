@@ -2,7 +2,7 @@
 requires = ["setuptools", "wheel"]  # 指定构建工具
 
 [project]
-name = "django-dashboards"
+name = "django-dashboard"
 version = "0.1.0"
 description = ""  # 项目描述，如果有的话
 readme = "README.md"  # 项目的 README 文件，如果有的话
