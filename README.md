@@ -7,7 +7,7 @@ A dashboard based on Django template.
 Install the package via pip:
 
 ```bash
-pip install django-dashboard
+pip install django-template-dashboard
 ```
 
 ## Configuration
