@@ -1,2 +1,2 @@
-recursive-include your_app_name/static *
-recursive-include your_app_name/templates *
+recursive-include dashboard/static *
+recursive-include dashboard/templates *
