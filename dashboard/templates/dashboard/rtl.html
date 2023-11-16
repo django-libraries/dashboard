@@ -1,4 +1,4 @@
-{% extends 'layouts/base-rtl.html' %}
+{% extends 'dashboard/base-rtl.html' %}
 {% load static %}
 
 {% block content %}
@@ -114,11 +114,11 @@
                             </div>
                             <div class="col-lg-4 me-auto ms-0 text-center">
                                 <div class="bg-gradient-primary border-radius-lg min-height-200">
-                                    <img src="{% static 'img/shapes/waves-white.svg' %}"
+                                    <img src="{% static 'dashboard/img/shapes/waves-white.svg' %}"
                                          class="position-absolute h-100 top-0 d-md-block d-none" alt="waves">
                                     <div class="position-relative pt-5 pb-4">
                                         <img class="max-width-500 w-100 position-relative z-index-2"
-                                             src="{% static 'img/illustrations/rocket-white.png' %}">
+                                             src="{% static 'dashboard/img/illustrations/rocket-white.png' %}">
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
             <div class="col-lg-5">
                 <div class="card h-100 p-3">
                     <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
-                         style="background-image: url('{% static 'img/ivancik.jpg' %}');">
+                         style="background-image: url('{% static 'dashboard/img/ivancik.jpg' %}');">
                         <span class="mask bg-gradient-dark"></span>
                         <div class="card-body position-relative z-index-1 p-3 h-100">
                             <div class="d-flex flex-column h-100">
@@ -389,7 +389,7 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div>
-                                                <img src="{% static 'img/small-logos/logo-xd.svg' %}"
+                                                <img src="{% static 'dashboard/img/small-logos/logo-xd.svg' %}"
                                                      class="avatar avatar-sm ms-3">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
@@ -401,20 +401,20 @@
                                         <div class="avatar-group mt-2">
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                                <img alt="Image placeholder" src="{% static 'img/team-1.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-1.jpg' %}">
                                             </a>
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                                <img alt="Image placeholder" src="{% static 'img/team-2.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-2.jpg' %}">
                                             </a>
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                title="Alexander Smith">
-                                                <img alt="Image placeholder" src="{% static 'img/team-3.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-3.jpg' %}">
                                             </a>
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                                <img alt="Image placeholder" src="{% static 'img/team-4.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-4.jpg' %}">
                                             </a>
                                         </div>
                                     </td>
@@ -439,7 +439,7 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div>
-                                                <img src="{% static 'img/small-logos/logo-atlassian.svg' %}"
+                                                <img src="{% static 'dashboard/img/small-logos/logo-atlassian.svg' %}"
                                                      class="avatar avatar-sm ms-3">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
@@ -451,11 +451,11 @@
                                         <div class="avatar-group mt-2">
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                                <img alt="Image placeholder" src="{% static 'img/team-2.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-2.jpg' %}">
                                             </a>
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                                <img alt="Image placeholder" src="{% static 'img/team-4.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-4.jpg' %}">
                                             </a>
                                         </div>
                                     </td>
@@ -480,7 +480,7 @@
                                     <td>
                                         <div class="d-flex px-2 py-1">
                                             <div>
-                                                <img src="{% static 'img/small-logos/logo-slack.svg' %}"
+                                                <img src="{% static 'dashboard/img/small-logos/logo-slack.svg' %}"
                                                      class="avatar avatar-sm ms-3">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
@@ -492,11 +492,11 @@
                                         <div class="avatar-group mt-2">
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                                <img alt="Image placeholder" src="{% static 'img/team-3.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-3.jpg' %}">
                                             </a>
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                                <img alt="Image placeholder" src="{% static 'img/team-1.jpg' %}">
+                                                <img alt="Image placeholder" src="{% static 'dashboard/img/team-1.jpg' %}">
                                             </a>
                                         </div>
                                     </td>
@@ -723,14 +723,14 @@
             </div>
         </div>
 
-        {% include 'includes/footer-rtl.html' %}
+        {% include 'dashboard/includes/footer-rtl.html' %}
     </div>
 
 {% endblock content %}
 
 {% block scripts %}
 
-    <script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/plugins/chartjs.min.js' %}"></script>
     <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
