@@ -13,7 +13,7 @@ class DashboardView(LoginRequiredMixin, View):
     """
     仪表板视图
     """
-    login_url = 'dashboard/accounts/login/'
+    login_url = '/dashboard/accounts/login/'
     redirect_field_name = 'next'
     template_name = 'dashboard/index.html'
 
@@ -48,7 +48,7 @@ def profile(request):
 
 # Authentication
 class UserLoginView(LoginView):
-    template_name = 'accounts/login.html'
+    template_name = 'dashboard/accounts/login.html'
     form_class = LoginForm
 
 
@@ -58,31 +58,31 @@ def register(request):
         if form.is_valid():
             form.save()
             print('Account created successfully!')
-            return redirect('/accounts/login/')
+            return redirect('/dashboard/accounts/login/')
         else:
             print('Register failed!')
     else:
         form = RegistrationForm()
 
     context = {'form': form}
-    return render(request, 'accounts/register.html', context)
+    return render(request, 'dashboard/accounts/register.html', context)
 
 
 def logout_view(request):
     logout(request)
-    return redirect('/accounts/login/')
+    return redirect('/dashboard/accounts/login/')
 
 
 class UserPasswordResetView(PasswordResetView):
-    template_name = 'accounts/password_reset.html'
+    template_name = 'dashboard/accounts/password_reset.html'
     form_class = UserPasswordResetForm
 
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'accounts/password_reset_confirm.html'
+    template_name = 'dashboard/accounts/password_reset_confirm.html'
     form_class = UserSetPasswordForm
 
 
 class UserPasswordChangeView(PasswordChangeView):
-    template_name = 'accounts/password_change.html'
+    template_name = 'dashboard/accounts/password_change.html'
     form_class = UserPasswordChangeForm
