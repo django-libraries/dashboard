@@ -24,3 +24,6 @@ Source = "https://github.com/django-libraries/django-template-dashboard"  # Ê∫ê‰
 Framework = "Django"
 Programming_Language = "Python :: 3"
 License = "OSI Approved :: MIT License"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "django_template_dashboard*"]
