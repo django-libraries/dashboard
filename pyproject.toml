@@ -3,8 +3,8 @@ requires = ["setuptools", "wheel"]  # 指定构建工具
 
 [project]
 name = "django-template-dashboard"
-version = "0.1.11"
-description = ""  # 项目描述，如果有的话
+version = "0.1.12"
+description = "A dashboard based on Django template."  # 项目描述，如果有的话
 readme = "README.md"  # 项目的 README 文件，如果有的话
 authors = [# 项目的作者信息，如果有的话
     { name = "Author Name", email = "author@example.com" },

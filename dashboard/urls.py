@@ -2,6 +2,9 @@ from django.urls import path
 from dashboard import views as dashboard_views
 from django.contrib.auth import views as auth_views
 
+from . import views
+from . import registry
+
 urlpatterns = [
     path('', dashboard_views.DashboardView.as_view(), name='index'),
     path('billing/', dashboard_views.billing, name='billing'),
@@ -28,3 +31,7 @@ urlpatterns = [
         template_name='accounts/password_reset_complete.html'
     ), name='password_reset_complete'),
 ]
+
+for name, dashboard_cls in registry.dashboard_registry.get_registered_dashboards().items():
+    urlpatterns.append(
+        path(f'dashboard/{name}/', views.dashboard_view, kwargs={'dashboard_name': name}, name=f'dashboard_{name}'))

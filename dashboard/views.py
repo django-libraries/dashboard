@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordChangeView, PasswordResetConfirmView
 from dashboard.forms import RegistrationForm, LoginForm, UserPasswordResetForm, UserSetPasswordForm, \
@@ -7,6 +8,20 @@ from django.contrib.auth import logout
 # 在 views.py 文件中
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
+
+from django.shortcuts import render
+
+from . import registry
+
+
+def dashboard_view(request, dashboard_name):
+    dashboard_cls = registry.dashboard_registry.get_registered_dashboards().get(dashboard_name)
+    if dashboard_cls is None:
+        raise Http404(f"Dashboard '{dashboard_name}' not found")
+
+    dashboard = dashboard_cls()
+    context = dashboard.get_context_data()
+    return render(request, 'dashboard/index.html', context)
 
 
 class DashboardView(LoginRequiredMixin, View):
@@ -48,7 +63,7 @@ def profile(request):
 
 # Authentication
 class UserLoginView(LoginView):
-    template_name = 'accounts/login.html'
+    template_name = 'dashboard/accounts/login.html'
     form_class = LoginForm
 
 
@@ -58,31 +73,31 @@ def register(request):
         if form.is_valid():
             form.save()
             print('Account created successfully!')
-            return redirect('/accounts/login/')
+            return redirect('/dashboard/accounts/login/')
         else:
             print('Register failed!')
     else:
         form = RegistrationForm()
 
     context = {'form': form}
-    return render(request, 'accounts/register.html', context)
+    return render(request, 'dashboard/accounts/register.html', context)
 
 
 def logout_view(request):
     logout(request)
-    return redirect('/accounts/login/')
+    return redirect('/dashboard/accounts/login/')
 
 
 class UserPasswordResetView(PasswordResetView):
-    template_name = 'accounts/password_reset.html'
+    template_name = 'dashboard/accounts/password_reset.html'
     form_class = UserPasswordResetForm
 
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'accounts/password_reset_confirm.html'
+    template_name = 'dashboard/accounts/password_reset_confirm.html'
     form_class = UserSetPasswordForm
 
 
 class UserPasswordChangeView(PasswordChangeView):
-    template_name = 'accounts/password_change.html'
+    template_name = 'dashboard/accounts/password_change.html'
     form_class = UserPasswordChangeForm
