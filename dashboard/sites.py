@@ -1,5 +1,6 @@
 from django.urls import path
 
+from dashboard import views
 
 class DashboardSite:
     def __init__(self):
@@ -21,7 +22,9 @@ class DashboardSite:
     def get_urls(self):
         urlpatterns = []
         for name, dashboard_cls in self._registry.items():
-            urlpatterns.append(path(f'{name}/', dashboard_cls.as_view(), name=name))
+            urlpatterns.append(
+                path(f'{name}/', views.dashboard_view, kwargs={'dashboard_name': name}, name=f'dashboard_{name}')
+            )
         return urlpatterns
 
 
