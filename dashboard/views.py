@@ -9,19 +9,15 @@ from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 
-from django.shortcuts import render
-
-from . import registry
+from dashboard.sites import dashboard_site
 
 
 def dashboard_view(request, dashboard_name):
-    dashboard_cls = registry.dashboard_registry.get_registered_dashboards().get(dashboard_name)
+    dashboard_cls = dashboard_site.get_dashboard(dashboard_name)
     if dashboard_cls is None:
         raise Http404(f"Dashboard '{dashboard_name}' not found")
-
-    dashboard = dashboard_cls()
-    context = dashboard.get_context_data()
-    return render(request, 'dashboard/index.html', context)
+    # 渲染 Dashboard
+    return render(request, 'dashboard/index.html', {})
 
 
 class DashboardView(LoginRequiredMixin, View):
