@@ -1,4 +1,4 @@
-from . import registry
-from . import dashboard
+from base import Dashboard
+from decorators import register
 
-__all__ = ['registry', 'dashboard']
+__all__ = ['Dashboard', 'register']
