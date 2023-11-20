@@ -7,7 +7,7 @@ version = "0.1.12"
 description = "A dashboard based on Django template."  # 项目描述，如果有的话
 readme = "README.md"  # 项目的 README 文件，如果有的话
 authors = [# 项目的作者信息，如果有的话
-    { name = "Author Name", email = "author@example.com" },
+    { name = "Micro Enjoy", email = "fuqiang.work@foxamil.com" },
 ]
 license = { file = "LICENSE" }  # 项目许可证文件，如果有的话
 dependencies = [
