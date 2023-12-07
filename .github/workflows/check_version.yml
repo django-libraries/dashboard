@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0  # 设置为0以获取所有历史记录和标签
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
